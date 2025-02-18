@@ -1,52 +1,69 @@
-//
-//  ContentView.swift
-//  SpotifyDemo
-//
-//  Created by Francesca Fabiano-Grossi on 2/11/25.
-//
-
 import SwiftUI
-
 
 struct ContentView: View {
     var body: some View {
         ZStack {
             Color.black
-                .ignoresSafeArea() // Ensures the background covers the entire screen
+                .ignoresSafeArea()
             
             VStack {
                 
-                // 1. Centered Title at the Top
+
                 Text("one for the road")
                     .foregroundColor(.white)
                     .font(.title2)
-                    .fontWeight(.bold)
+                    .fontWeight(.medium)
                     .padding(.top, 50)
                 
-                Spacer() // Pushes elements downward
+                Spacer()
                 
                 // 2. Image in the Middle
-                Image(.rexOrangeCounty) // Ensure correct asset name
+                Image(.rexOrangeCounty)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 300, height: 400)
+                    .frame(width: 280, height: 380)
                 
-                Spacer() // Pushes text downward
+                Spacer()
                 
-                // 3. Bottom text & Pause Button
-                VStack(spacing: 20) { // Adds space between text & button
-                    Text("Paradise")
-                        .foregroundColor(.white)
-                        .font(.title)
+
+                VStack(spacing: 18) {
                     
-                    Image(systemName: "pause.circle")
-                        .font(.system(size: 56.0))
-                        .foregroundColor(.white) // Ensures the pause icon is visible
+      
+                    VStack(alignment: .leading) {
+                        Text("Paradise")
+                            .foregroundColor(.white)
+                            .font(.title3)
+                            .fontWeight(.medium)
+                        
+                        Text("Orange County")
+                            .foregroundColor(.gray)
+                            .font(.subheadline)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading, 40)
+                    
+                    HStack(spacing: 35) {
+                        Image(systemName: "shuffle")
+                            .font(.system(size: 40))
+                            .foregroundColor(.white)
+                        
+                        Image(systemName: "backward.end.fill")
+                            .font(.system(size: 40))
+                            .foregroundColor(.white)
+                        
+                        Image(systemName: "pause.circle")
+                            .font(.system(size: 56))
+                            .foregroundColor(.white)
+                        
+                        Image(systemName: "forward.end.fill")
+                            .font(.system(size: 40))
+                            .foregroundColor(.white)
+                    }
                 }
                 
-                Spacer() // Prevents bottom text from touching screen edge
+                Spacer()
             }
-            .padding(.horizontal, 20) // Adds padding to prevent elements from touching edges
+            .padding(.horizontal, 20)
         }
     }
 }
